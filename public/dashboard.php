@@ -1,3 +1,9 @@
+<?php
+
+include('../controllers/protect.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +29,7 @@
                         </svg>
 
 
-                            <span class="flex-1 ms-3 whitespace-nowrap">nome_userr</span>
+                            <span class="flex-1 ms-3 whitespace-nowrap"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
                         </p>
                     </li>
 

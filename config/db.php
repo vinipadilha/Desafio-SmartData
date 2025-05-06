@@ -13,3 +13,6 @@ function connect_db()
     }
     return $conexao;
 }
+
+$mysqli = connect_db();
+?>
