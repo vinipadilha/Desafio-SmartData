@@ -24,4 +24,11 @@ Este projeto é um sistema simples de gerenciamento de clientes, onde um usuári
 ![adicionar cliente](screenshots/add-cliente.png)
 ![lista clientes](screenshots/lista-clientes.png)
 
+## Instalação
 
+### 1. Clonar o Repositório
+
+Clone o repositório do projeto para sua máquina local usando o seguinte comando:
+
+```bash
+git clone https://github.com/vinipadilha/Desafio-SmartData
