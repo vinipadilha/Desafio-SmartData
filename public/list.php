@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+    <div id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
         <div class="h-full px-3 py-4 bg-gray-100 flex flex-col justify-between">
 
             <div>
@@ -66,7 +66,97 @@
 
     </div>
 
-    <div class=" lg:ml-64 p-10 ">
+    <div class="lg:ml-64 p-10">
+        <?php if (!empty($veiculos)): ?>
+                <h2 class="text-xl font-bold mt-10 mb-4">Lista de Clientes</h2>
+
+                <?php foreach ($veiculos as $veiculo): ?>
+                    <div class="mt-6" id="veiculo-<?= $veiculo['id'] ?>">
+                        <hr class="h-px my-8 bg-gray-200 border-0">
+
+                        <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <form action="atualizar_veiculo.php" method="POST" class="form-veiculo">
+                                <input type="hidden" name="id" value="<?= $veiculo['id'] ?>">
+
+                                <div class="grid lg:gap-6 gap-4 mb-6 md:grid-cols-6 grid-cols-2">
+
+
+                                    <div class="lg:col-span-1 col-span-1">
+                                        <label for="tipo-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Tipo Veículo</label>
+                                        <select name="tipo_veiculo" id="tipo-<?= $veiculo['id'] ?>" class="focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                            <option value="carro" <?= $veiculo['tipo'] == 'carro' ? 'selected' : '' ?>>Carro</option>
+                                            <option value="moto" <?= $veiculo['tipo'] == 'moto' ? 'selected' : '' ?>>Moto</option>
+                                            <option value="caminhao" <?= $veiculo['tipo'] == 'caminhao' ? 'selected' : '' ?>>Caminhão</option>
+                                            <option value="van" <?= $veiculo['tipo'] == 'van' ? 'selected' : '' ?>>Van</option>
+                                            <option value="onibus" <?= $veiculo['tipo'] == 'onibus' ? 'selected' : '' ?>>Ônibus</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="lg:col-span-2 col-span-1">
+                                        <label for="marca-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Marca</label>
+                                        <input name="marca" type="text" id="marca-<?= $veiculo['id'] ?>" value="<?= htmlspecialchars($veiculo['marca']) ?>" class=" focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                    </div>
+
+                                    <div class="col-span-3">
+                                        <label for="modelo-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Modelo</label>
+                                        <input name="modelo" type="text" id="modelo-<?= $veiculo['id'] ?>" value="<?= htmlspecialchars($veiculo['modelo']) ?>" class="focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                    </div>
+
+                                    <div class="col-span-1">
+                                        <label for="ano-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Ano</label>
+                                        <input name="ano" type="number" id="ano-<?= $veiculo['id'] ?>" value="<?= htmlspecialchars($veiculo['ano']) ?>" min="1900" max="2099" class="mascara-ano focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                    </div>
+
+                                    <div class="lg:col-span-2 col-span-1">
+                                        <label for="cor-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Cor</label>
+                                        <input name="cor" type="text" id="cor-<?= $veiculo['id'] ?>" value="<?= htmlspecialchars($veiculo['cor']) ?>" class="focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                    </div>
+
+                                    <div class="lg:col-span-2 col-span-1">
+                                        <label for="placa-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Placa</label>
+                                        <input name="placa" type="text" id="placa-<?= $veiculo['id'] ?>" value="<?= htmlspecialchars($veiculo['placa']) ?>" class="focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled maxlength="7">
+                                    </div>
+
+                                    <div class="col-span-1">
+                                        <label for="quilometragem-<?= $veiculo['id'] ?>" class="block mb-1 text-sm font-medium text-gray-900">Quilometragem</label>
+                                        <input name="quilometragem" type="text" id="quilometragem-<?= $veiculo['id'] ?>" value="<?= number_format($veiculo['quilometragem'], 0, '', '.') ?>" class="mascara-quilometragem focus:ring-blue-500 focus:border-blue-500 border-2 bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2 outline-none cursor-not-allowed" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="lg:gap-6 gap-4 items-center grid grid-cols-6">
+                                    <!-- Botão Editar/Salvar (alterna entre os dois estados) -->
+                                    <button type="button" class="editar-btn text-white inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer col-span-3" data-id="<?= $veiculo['id'] ?>">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
+                                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Editar
+                                    </button>
+
+                                    <!-- Botão Excluir/Cancelar (alterna entre os dois estados) -->
+                                    <button type="button" class="excluir-btn inline-flex items-center justify-center gap-2 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer col-span-3" data-id="<?= $veiculo['id'] ?>">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Excluir
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <hr class="h-px my-8 bg-gray-300 border-0">
+                <div class="mt-10 p-4 rounded-lg bg-gray-100 border-2 border-gray-300 shadow-xl flex items-center justify-between ">
+                    <div>
+                        <p class="font-medium">Nenhum cliente cadastrado</p>
+                        <p class="text-sm">Adicione seu primeiro cliente <a class="text-blue-600 underline" href="/desafio-smartdata/public/add-cliente.php">aqui</a></p>
+                    </div>
+                </div>
+
+
+            <?php endif; ?>
+        
         
     </div>
 </body>
