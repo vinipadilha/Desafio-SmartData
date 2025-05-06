@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+    <div id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
         <div class="h-full px-3 py-4 bg-gray-100 flex flex-col justify-between">
 
             <div>
@@ -67,6 +67,50 @@
     </div>
 
     <div class=" lg:ml-64 p-10 ">
+        <div class="p-8 bg-white border border-gray-200 rounded-lg shadow-sm mx-20">
+            <form id="formCliente" method="POST" action="">
+
+                <div class="space-y-7">
+                    <div class="">
+                        <label for="nome-cliente" class="block mb-1 text-sm font-medium text-gray-900 ">Nome</label>
+                        <input type="text" id="nome-cliente" name="nome" value="" class=" bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none"  />
+                    </div>
+
+                    <div class="">
+                        <label for="documento-cliente" class="block mb-1 text-sm font-medium text-gray-900 ">Documento</label>
+                        <input type="text" id="documento-cliente" name="documento" value="" class=" bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none"  />
+                    </div>
+
+                    <div class="">
+                        <label for="telefone-cliente" class="block mb-1 text-sm font-medium text-gray-900 ">Número de telefone</label>
+                        <input type="text" id="telefone-cliente" name="telefone" value="" class=" bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none"  />
+                    </div>
+
+                    <div class="">
+                        <label for="email-cliente" class="block mb-1 text-sm font-medium text-gray-900 ">Email</label>
+                        <input type="email" id="email-cliente" name="email" value="" class=" bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none"  />
+                    </div>
+
+                    <div class="">
+                        <label for="endereco-" class="block mb-1 text-sm font-medium text-gray-900 ">Endereço</label>
+                        <input type="text" id="email-cliente" name="endereco" value="" class=" bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none"  />
+                    </div>
+
+                </div>
+
+
+                <div class=" items-center grid  mt-6">
+                    <button id="BtnAdicionarCliente" type="button" name="salvar_perfil" value="1" class="text-white inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
+                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        Adicionar
+                    </button>
+                </div>
+            </form>
+
+        </div>
         
     </div>
 </body>
