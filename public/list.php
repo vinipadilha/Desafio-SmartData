@@ -1,5 +1,5 @@
 <?php
-session_start(); // caso ainda não tenha sido iniciado no protect.php
+session_start();
 
 include('../config/db.php');
 include('../controllers/protect.php');
