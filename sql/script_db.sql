@@ -24,10 +24,3 @@ CREATE TABLE IF NOT EXISTS clientes (
 SELECT * FROM usuarios;
 SELECT * FROM clientes;
 
-
-INSERT INTO usuarios (usuario, senha) 
-VALUES (
-    'admin', 
-    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
-);
--- senha: admin123

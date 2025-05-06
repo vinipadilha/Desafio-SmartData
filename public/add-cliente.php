@@ -1,3 +1,9 @@
+<?php
+
+include('../controllers/protect.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +29,14 @@
                         </svg>
 
 
-                            <span class="flex-1 ms-3 whitespace-nowrap">nome_userr</span>
+                            <span class="flex-1 ms-3 whitespace-nowrap"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
                         </p>
                     </li>
 
                     
 
                     <li>
-                        <a href="/desafio-smartdata/public/list.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group">
+                        <a href="../public/list.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group">
                         <svg  class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                           <path fill-rule="evenodd" d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z" clip-rule="evenodd"/>
                         </svg>
@@ -43,7 +49,7 @@
                     
 
                     <li>
-                        <a href="/desafio-smartdata/public/add-cliente.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group">
+                        <a href="../public/add-cliente.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group">
                         <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                           <path fill-rule="evenodd" d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
                         </svg>
@@ -68,7 +74,7 @@
 
     <div class=" lg:ml-64 p-10 ">
         <div class="p-8 bg-white border border-gray-200 rounded-lg shadow-sm mx-20">
-            <form id="formCliente" method="POST" action="">
+            <form id="formCliente" method="POST" action="../controllers/create.php">
 
                 <div class="space-y-7">
                     <div class="">
@@ -100,7 +106,7 @@
 
 
                 <div class=" items-center grid  mt-6">
-                    <button id="BtnAdicionarCliente" type="button" name="salvar_perfil" value="1" class="text-white inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
+                    <button id="BtnAdicionarCliente" type="submit" name="salvar_perfil" value="1" class="text-white inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
                             <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path>
